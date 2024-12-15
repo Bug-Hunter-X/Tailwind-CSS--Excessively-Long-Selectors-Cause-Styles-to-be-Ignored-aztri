@@ -1,0 +1,36 @@
+This solution focuses on refactoring and using CSS variables.  Instead of using multiple modifiers for responsiveness and states, we group styles using a single class name and leverage responsive utilities more effectively and use CSS variables for better maintainability and shorter class names.
+
+```html
+<!-- bugSolution.html -->
+<div class="container">
+  <button class="btn">Button</button>
+</div>
+<style>
+  .container {
+    display: flex; 
+    justify-content: center; 
+  }
+  .btn {
+    padding: 10px 20px; 
+    background-color: var(--btn-bg); 
+    color: var(--btn-color); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+  @media (min-width: 768px) {
+      .btn {
+        padding: 15px 30px; 
+      }
+  }
+  .btn:hover {
+      background-color: var(--btn-hover-bg); 
+  }
+  :root {
+    --btn-bg: #4CAF50; /* Default background color */
+    --btn-color: white; /* Default text color */
+    --btn-hover-bg: #45a049; /* Hover background color */
+  }
+</style>
+```
